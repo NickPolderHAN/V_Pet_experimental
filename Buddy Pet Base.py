@@ -102,6 +102,8 @@ class VirtualPet:
         return cycle, event_number
 
     def update(self, cycle, check, event_number, x, y):
+        frame = None
+
         # idle
         if check == 0:
             frame = self.idle[cycle]

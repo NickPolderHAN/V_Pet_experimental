@@ -37,6 +37,7 @@ class VirtualPet:
         # Adjust the y position to be higher
         y_position = self.screen_height - 150
 
+        # Creates the gif variables.
         self.idle = None
         self.idle_to_sleep = None
         self.sleep = None
@@ -44,8 +45,10 @@ class VirtualPet:
         self.walk_positive = None
         self.walk_negative = None
 
+        # Called in order to get the gifs and assign them to their variables.
         self.get_animation_gifs()
 
+        # Starts the loop.
         self.window.after(1, self.update, cycle, check, event_number,
                           self.screen_width - 400, y_position)
         self.window.mainloop()

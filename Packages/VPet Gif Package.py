@@ -1,9 +1,10 @@
 # Built-in Packages
 from PIL import Image
 import tkinter as tk
+from tkinter import filedialog
 
 
-def parse_gif_file_to_action(image_path):
+def parse_gif_action(image_path):
     try:
         if '.gif' in image_path:
             # Open the image file
@@ -30,4 +31,11 @@ def parse_gif_file_to_action(image_path):
 
 
 if __name__ == '__main__':
-    parse_gif_file_to_action("Animations\Idle.gif")
+    # Open file dialog to choose a GIF file
+    file_path = filedialog.askopenfilename(
+        title="Select a GIF file",
+        filetypes=(("GIF files", "*.gif"), ("All files", "*.*"))
+    )
+
+    # Sent the gif to be parsed.
+    parse_gif_action(file_path)

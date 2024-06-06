@@ -1,6 +1,11 @@
+# Built-in Packages
 import pyautogui
 import random
 import tkinter as tk
+
+# Custom Packages
+from Packages import VPet_Gif_Package
+
 
 x = None
 cycle = 0
@@ -136,16 +141,12 @@ class VirtualPet:
 
     def get_animation_gifs(self):
         # call buddy's action gif
-        self.idle = [tk.PhotoImage(file=impath + 'idle.gif', format='gif -index %i' % (i)) for i in range(5)]  # idle gif
-        self.idle_to_sleep = [tk.PhotoImage(file=impath + 'idle_to_sleep.gif', format='gif -index %i' % (i)) for i in
-                         range(8)]  # idle to sleep gif
-        self.sleep = [tk.PhotoImage(file=impath + 'sleeping.gif', format='gif -index %i' % (i)) for i in range(3)]  # sleep gif
-        self.sleep_to_idle = [tk.PhotoImage(file=impath + 'sleep_to_idle.gif', format='gif -index %i' % (i)) for i in
-                         range(8)]  # sleep to idle gif
-        self.walk_positive = [tk.PhotoImage(file=impath + 'walk_left.gif', format='gif -index %i' % (i)) for i in
-                         range(8)]  # walk to left gif
-        self.walk_negative = [tk.PhotoImage(file=impath + 'walk_right.gif', format='gif -index %i' % (i)) for i in
-                         range(8)]  # walk to right gif
+        self.idle = VPet_Gif_Package.parse_gif_action(impath + "Idle.gif")
+        self.idle_to_sleep = VPet_Gif_Package.parse_gif_action(impath + "idle_to_sleep.gif")
+        self.sleep = VPet_Gif_Package.parse_gif_action(impath + "sleeping.gif")
+        self.sleep_to_idle = VPet_Gif_Package.parse_gif_action(impath + "sleep_to_idle.gif")
+        self.walk_positive = VPet_Gif_Package.parse_gif_action(impath + "walk_left.gif")
+        self.walk_negative = VPet_Gif_Package.parse_gif_action(impath + "walk_right.gif")
 
 
 if __name__ == '__main__':

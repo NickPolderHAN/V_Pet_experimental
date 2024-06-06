@@ -2,7 +2,7 @@
 import tkinter as tk
 
 # Custom
-from Packages.Buddy_Pet_package import VirtualPetBuddy
+from WIP import Buddy_Pet_Base
 
 
 class Home:
@@ -33,7 +33,7 @@ class Home:
     # Triggers if the buddy button is pressed and the home screen needs to disappear.
     def show_buddy(self):
         self.window.destroy()
-        vpet = VirtualPetBuddy()
+        vpet = Buddy_Pet_Base.VirtualPet()
 
 
 if __name__ == '__main__':
